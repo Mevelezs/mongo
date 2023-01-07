@@ -1,0 +1,7 @@
+use("sample_training");
+
+db.zips.find({ state : "NY" });
+
+db.zips.find({ state : "NY" }).count();
+
+// se muestra solo el resultado de la última linea
