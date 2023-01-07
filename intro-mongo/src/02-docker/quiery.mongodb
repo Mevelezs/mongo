@@ -1,0 +1,3 @@
+use('DB-Prueba');
+
+db.Products.find()
