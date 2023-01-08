@@ -1,0 +1,3 @@
+use('insert_prueba');
+
+db.Products.find()

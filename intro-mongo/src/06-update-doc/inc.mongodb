@@ -1,0 +1,12 @@
+use('insert_prueba');
+
+db.Products.updateOne( // cambiando atributos
+// query que encuentra el producto
+  { _id: 1 },
+  // change => operator
+  {
+    $inc:{
+      stock: 10, // solo para valores numericos; incrementa el valor original la cantidad que se le indique
+    }
+ }
+);

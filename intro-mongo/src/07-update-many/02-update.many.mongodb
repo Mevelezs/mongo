@@ -1,0 +1,16 @@
+use('sample_training');
+
+
+db.zips.updateMany(
+  // query de consulta
+  { city : 'CLEVELAND'},
+  // update => operators
+  {
+    $inc: {
+      pop : 10000, // incrementando la población
+    },
+    $set : {
+      prueva : true, // incertando un nuevo atributo
+    }
+  }
+)

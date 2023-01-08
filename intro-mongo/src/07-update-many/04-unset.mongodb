@@ -1,0 +1,13 @@
+use('sample_training');
+
+
+db.zips.updateMany(
+  // query de consulta
+  { city : 'CLEVELAND'},
+  // update => operators
+  {
+    $unset : {
+      prueba : '', // elimina el atributo
+    }
+  }
+)

@@ -1,0 +1,14 @@
+use('insert_prueba');
+
+db.Products.updateOne( // cambiando atributos
+// query que encuentra el producto
+  { _id: 1 },
+  // change => operator
+  {
+    $set:{
+      name: 'Change Name',
+      price : 'other price',
+      tags : ['A','B','C'] // agragando otro atributo
+    }
+ }
+);

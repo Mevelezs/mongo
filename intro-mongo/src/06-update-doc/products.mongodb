@@ -1,0 +1,36 @@
+use('insert_prueba');
+
+
+db.Products.drop() // borra la data.
+
+db.Products.insertMany([
+  {
+    _id:1,
+    name:'Product 1',
+    price: 1000,
+    stock: 10
+  },
+  {
+    _id:2,
+    name:'Product 2',
+    price: 2000,
+    stock: 10
+  },
+  {
+    _id:3,
+    name:'Product 3',
+    price: 1010,
+    stock: 10
+  },
+  {
+    _id:4,
+    name:'Product 4',
+    price: 1100,
+    stock: 1
+  },
+  {
+    name:'Product 5',
+    price: 1100,
+    stock: 1
+  },
+])

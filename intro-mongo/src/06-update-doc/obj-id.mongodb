@@ -1,0 +1,14 @@
+use('insert_prueba');
+
+db.Products.updateOne( // cambiando atributos con el id que mongo da por defecto
+// query que encuentra el producto
+  { _id: ObjectId("63ba2a9989c8c990e72b0884") },
+  // change => operator
+  {
+    $set:{
+      name: 'Change Name',
+      price : 'other price',
+      tags : ['A','B','C'] // agragando otro atributo
+    }
+ }
+);

@@ -1,0 +1,53 @@
+use('insert_prueba');
+
+
+db.Products.drop() // borra la data.
+
+db.Products.insertMany([
+  {
+    _id:1, // agregando id propio
+    name:'Product 1',
+    price: 1000,
+    stock: 10
+  },
+  {
+    _id:2,
+    name:'Product 2',
+    price: 2000,
+    stock: 10
+  },
+  {
+    _id:1, // si el id se repite adiciona hasta este punto
+    name:'Product 1',
+    price: 1000,
+    stock: 10
+  },
+  {
+    _id:3, // si el id se repite adiciona hasta este punto
+    name:'Product 3',
+    price: 1010,
+    stock: 10
+  },
+  {
+    _id:2, // si el id se repite adiciona hasta este punto
+    name:'Product 2',
+    price: 2000,
+    stock: 10
+  },
+  {
+    _id:3, // si el id se repite adiciona hasta este punto
+    name:'Product 3',
+    price: 1010,
+    stock: 10
+  },
+  {
+    _id:4, // si el id se repite adiciona hasta este punto
+    name:'Product 4',
+    price: 1100,
+    stock: 1
+  },
+],
+{
+  ordered: false // permite que no se corte la adiccion de elementos por id repetidos; solo se los salta;
+  // aunque en el visual sigue mostrando el error, la data se agrega.
+})

@@ -1,0 +1,18 @@
+use('insert_prueba')
+
+// si la base de datos o la colección a la cual nos referimos no está, inmediatamente la crea
+
+
+db.Products.insertOne({
+  name: "Product 1",
+  price: "100",
+  stock: 12
+});
+
+db.Products.insertOne({
+  name: "Product 2",
+  price: "200",
+  stock: 24
+})
+
+// siempre que se ejecute este documento, se crearán dos nuevos productos
