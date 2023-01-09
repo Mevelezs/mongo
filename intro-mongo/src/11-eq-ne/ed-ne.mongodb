@@ -1,0 +1,17 @@
+use("platzi_store")
+
+// using $eq
+// db.inventory.find({ qty: 20 }) // forma implicita
+
+// db.inventory.find({ qty: { $eq: 20 } }) // forma explicita
+
+// db.inventory.find({ "item.code" : "123" }) // consulta de elemntos dentro de obj (las comllae dobles son requeridas); implicita
+
+// db.inventory.find({  "item.code" : { $eq:"123" }}) // explicita
+
+
+
+// Usind $ne
+// aquí todo tiene que ser explicito
+
+db.inventory.find({  "item.code" : { $ne:"123" }})

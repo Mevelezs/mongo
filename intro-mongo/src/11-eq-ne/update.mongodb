@@ -1,0 +1,12 @@
+use("platzi_store")
+
+db.inventory.updateMany( // mezclado operedores --> de busqueda (comparación)- de cambio
+  {
+    qty: { $ne : 20 }
+  },
+  {
+    $inc: {
+      qty: 100000000000
+    }
+  }
+)

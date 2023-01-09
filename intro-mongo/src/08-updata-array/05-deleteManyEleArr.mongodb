@@ -1,0 +1,9 @@
+use('platzi_store');
+
+db.inventory.updateMany({},{ // Con el primer agumento como obj vacío recorre todos los elmentos de la colección
+  $pull:{
+    tags:{
+      $in:['school', 'book']// éste $in permite escojer los elementos señalados dentro del array
+    }
+  }
+})

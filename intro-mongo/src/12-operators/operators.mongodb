@@ -1,0 +1,23 @@
+use("platzi_store")
+
+// Using gt (>) & gts (>=)
+
+// db.inventory.find({ qty: { $gt: 20 }}) // greater than
+
+// db.inventory.find({ qty: { $gte: 20 }}) // greater than or equal
+
+
+
+// Using lt (<) & lts (<=)
+
+// db.inventory.find({ qty: { $lt: 20 }}) // lees than
+// db.inventory.find({ qty: { $lte: 20 }}) // less than or equal
+
+// Join
+
+// db.inventory.find({ qty: { $gte: 20, $lte: 25 }})
+
+db.inventory.find({
+  "item.code":{ $ne:"123" },
+  qty: { $gte: 20, $lte: 25 }
+})

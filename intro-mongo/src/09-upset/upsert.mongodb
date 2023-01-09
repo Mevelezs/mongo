@@ -1,0 +1,19 @@
+use('platzi_store');
+
+// para este ejemplo se toman los datos generados por varios sensores en determinado día;
+// la isdea es que si la fecha de la lectura del sensor se repite, la data se guarde en el array de datos y si la fecha no
+// está que se genere una nueva linea con las lecturas de esa fecha; para esto se usa la siguente esturctura;
+// la primera parte identifica ale sensor y la fecha, la segunda parte agrega al arreglo de lecturas la data
+// si fue encontrada por la primera parte; la tercera se encarga de crear una nueva instancia del senson con
+// una nueva fecha si no se encuentra.
+db.iot.updateOne({
+  sensor: "A001",
+  date: "2022-01-04",
+},{
+  $push:{
+    readings: 1143
+  }
+},
+{
+  upsert: true,
+})
