@@ -1,0 +1,22 @@
+use('sample_training');
+
+
+// encontrar viajes que inician y finalizan en el mismo punto
+// db.trips.find({
+//   $expr:{
+//     $eq:['$start station id', '$end station id']
+//   }
+// }).count()
+
+
+// encontrar los viajes con la condicion anterior pero que hayan durato cierto tiempo
+
+db.trips.find({
+  $expr:{
+    $and: [
+      { $eq: ['$start station id', '$end station id'] },
+      { $gte: ['$tripduration', 1200] }
+    ]
+  }
+}).count()
+

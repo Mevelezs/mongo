@@ -1,0 +1,9 @@
+use("platzi_store")
+
+// db.monthlyBudget.find({ spent: { $gte: 100 } })// busca los spent mayores o iguales a 100
+
+db.monthlyBudget.find({ // compara los valores de las dos variables y devuelve lo que espera la expresión
+  $expr:{
+    $gte : ['$spent', '$budget'] // todos los espent >= budget
+  }
+})

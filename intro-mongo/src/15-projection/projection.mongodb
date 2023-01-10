@@ -1,0 +1,11 @@
+use('sample_training');
+
+db.trips.find(
+  // query
+  { tripduration : { $gte : 500 } },
+  // projection
+  { tripduration : 1, usertype : 1, /* _id :0 */}
+  )
+// solo traerá los elementos que cumplan con la query y solamente los datos de esos elemetos
+// señelados por la proyeccion. El id de trae por default, si se que re quitar se pone dentro
+// de la projeccion con un valor de 0.

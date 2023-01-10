@@ -1,0 +1,17 @@
+use('sample_training')
+
+// db.companies.find({ // cuantas personas en el array de relationships en la posicion cero se llaman Mark
+//   'relationships.0.person.first_name': 'Mark' // accediendo a la posición de un array ( 0 )
+// },
+// {
+//   name: 1,
+//   relationships: 1
+// }).count()
+
+db.companies.find({ // cuantas personas en el array de relationships en cualquier posicion se llaman Mark
+ relationships: {
+  $elemMatch :{
+    'person.first_name': 'Mark'
+  }
+ }
+}).count()

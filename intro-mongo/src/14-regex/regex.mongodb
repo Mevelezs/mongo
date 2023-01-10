@@ -1,0 +1,8 @@
+use('platzi_store');
+
+// db.inventory.find({ "item.description" : "Single line description." }); busqueda con el párrafo completo
+// db.inventory.find({ "item.description" : { $regex : /line/ } })//  busqueda con regex (trae todos los que contienen esa palabra)
+// db.inventory.find({ "item.description" : { $regex : /LiNe/i } }) // insensitve case
+// db.inventory.find({ "item.description" : { $regex : /LiNe$/i } }) // item de texto que termine en la palabra indicada ($)
+// db.inventory.find({ "item.description" : { $regex : /^single/i } }) // item de texto que inicie en la palabra indicada (^)
+db.inventory.find({ "item.description" : { $regex : /^s/im } }) // item de texto que inicie en la palabra indicada; multiLine tiene en cuenta los saltos de linea (m)

@@ -1,0 +1,35 @@
+use('platzi_store');
+
+// $in ---> values & arrays
+
+// db.inventory.find( {qty: { $in: [20, 25] }}) // forma de hacer un or; trae los de qty = 20 ó 25, siempre se manda un array
+// db.inventory.find( { tags: { $in: ["book", "electronics"] }}) // lo minmo de arriba pero con strings como elementos dentro de los arreglos de tags
+
+
+// $nin ---> values & arrays
+// contrario al in, trae los elementos que no contienen lo especificado
+
+// db.inventory.find( {qty: { $nin: [20, 25] }})
+// db.inventory.find( { tags: { $nin: ["book", "electronics"] }})
+
+// Arrays
+// db.inventory.find( { tags: ["school", "book"] }) // forma directa de buscar el aaray exacto
+
+
+// $all ---> funciona como un &, busca el array que contenga los elementos sin importar el orden
+// db.inventory.find( { tags: { $all: ["book", "school"] }})
+
+
+// $size ---> busqueda por el tamaño del array
+// db.inventory.find( { tags: { $size: 2 }})
+
+// $elemMatch --->  para arrays con objs dentros
+
+// db.survey.find({results: { $elemMatch : { product : "xyz" }}})
+db.survey.find({
+  results: {
+    $elemMatch : {
+      product : "xyz" ,
+      score : { $gte : 7 }
+    }}
+  }) // más especifico

@@ -1,0 +1,27 @@
+use('sample_training');
+
+
+// db.routes.find({ // buscando un avion
+//   airplane:'E70'
+// })
+
+// db.routes.find({ // vuelos que ha tenido como detino o partida Bogotá
+//   $or:[
+//     { dst_airport : 'BOG' },
+//     { src_airport: 'BOG' }
+//   ]
+// })
+
+// cantidad de veces que el E70 ha estado en Bogotá
+
+db.routes.find({
+  $and:[
+    { airplane:'E70' },
+    {
+      $or:[
+      { dst_airport : 'BOG' },
+      { src_airport: 'BOG' }
+      ]
+    }
+  ]
+}).count()
