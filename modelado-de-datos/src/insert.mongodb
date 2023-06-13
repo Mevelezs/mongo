@@ -1,0 +1,11 @@
+use("sample_weatherdata");
+
+db.users.insertOne({
+  name: 'Mauricio',
+  last_Name:'Vélez',
+  email: 'admin"admin.com',
+  password: 'admin123',
+  age: 38,
+  isSingle: false,
+  role:'admin'
+})
