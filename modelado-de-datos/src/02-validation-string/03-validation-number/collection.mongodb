@@ -1,0 +1,24 @@
+use("sample_weatherdata");
+
+db.createCollection('users', { // crea la coleccion con las especificaciones
+  validator: { // valida los datos
+    $jsonSchema: { // tipo de datos de la schema
+      bsonType: "object", // tipo de dato
+      required: ["password", "email" ], // campos requeridos
+      properties: { // campos de la coleccion
+        name: { // campo name
+          bsonType: "string", // tipo de dato
+        },
+        last_Name: {
+          bsonType: "string"
+        },
+        email: {
+          bsonType: "string",
+        },
+        password: {
+          bsonType: "string"
+        }
+      }
+    }
+  }
+});
