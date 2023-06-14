@@ -1,0 +1,35 @@
+use("sample_weatherdata");
+
+db.createCollection('products', { // crea la coleccion con las especificaciones
+  validator: { // valida los datos
+    $jsonSchema: { // tipo de datos de la schema
+      bsonType: "object", // tipo de dato
+      required: ["name"], // campos requeridos
+      properties: { // campos de la coleccion
+        name: { // campo name
+          bsonType: "string", // tipo de dato
+        },
+        sizes: {
+          bsonType: 'array',
+          minItems: 1, // minimo de elementos del array
+          uniqueItems: true, // elementos del array deben ser unicos
+          items: { // tipos del elemento dentro del array
+            bsonType: 'string',
+          }
+        },
+        category: { // validando unobjeto anidado
+          bsonType: "object",
+          required: ["name"],
+          properties: {
+            name:{
+             bsonType: "string"
+            },
+            image: {
+              bsonType: "string"
+            }
+          }
+        }
+      }
+    }
+  }
+});

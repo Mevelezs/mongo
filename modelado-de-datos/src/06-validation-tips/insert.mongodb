@@ -1,0 +1,9 @@
+use("sample_weatherdata");
+
+db.users.insertOne({
+  email: 'mail"mail.com',
+  password: 'sasda2asdca',
+  role: 'customer',
+  // social:'face' // fallará
+
+})

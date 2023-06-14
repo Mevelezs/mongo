@@ -1,0 +1,10 @@
+use("sample_weatherdata");
+
+db.products.insertOne({
+  name: 'Camisetas',
+  sizes: ['S'],
+  category: {
+    name: 'categoria de camiseta',
+    image:''
+  }
+})

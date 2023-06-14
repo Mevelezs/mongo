@@ -1,0 +1,50 @@
+use("sample_weatherdata");
+
+db.getCollectionInfos() // genera la info de la colección
+
+
+// para hacer cambios en un colección sin borrar lo que tiene
+db.runCommand({
+  collMod: 'users', // nombre colección
+  validator:{ // validator con cambios
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": [
+            "password",
+            "email",
+            "role"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "name": {
+              "bsonType": "string"
+            },
+            "last_Name": {
+              "bsonType": "string"
+            },
+            "email": {
+              "bsonType": "string"
+            },
+            "password": {
+              "bsonType": "string",
+              "pattern": "^[A-Za-z0-9]{8,100}$"
+            },
+            "age": {
+              "bsonType": "number",
+              "minimum": 18,
+              "maximum": 99
+            },
+            "isSingle": {
+              "bsonType": "bool"
+            },
+            "role": {
+              "enum": [
+                "customer",
+                "seller",
+                "admin"
+              ]
+            }
+          }
+        }
+      }
+})
