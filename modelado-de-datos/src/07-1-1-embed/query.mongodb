@@ -1,0 +1,5 @@
+use("sample_weatherdata");
+
+db.users.find({
+  'adress.city': 'Medellín'
+})

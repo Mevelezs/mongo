@@ -1,0 +1,22 @@
+// Ésta relación 1 - 1 referenciada solo se usa si no se puede enbeber la iformación en una sola collección; normalmente es porque los documentos son muy pasados para mongo (maximo peso soportado 16 MB)
+use("sample_weatherdata");
+
+db.store.find({storeId: 'ST001'}) // consulta sencilla por el storeId a store
+
+db.store_details.find({ storeId: "ST001" }); // consulta sencilla por el storeId a store_details
+
+// usamos del agregation framework el agregate para consultar  y relacionae dos tablas diferente con almenos un parametro igual
+
+db.store.aggregate([
+  // se manda en un array
+  {
+    // el lookup en un arreglo
+    $lookup: {
+      from: 'store_details', // hacia a que collección a partie de store quiero apuntar
+      localField: 'storeId', // campo que los une o tienen en común DENTRO DE strore
+      foreignField: 'storeId', // campo que los une o tienen en común DENTRO DE strore_details
+      as: 'detail', // en donde va adejar la relación (si la collección no existe la crea)
+    },
+  },
+]);
+

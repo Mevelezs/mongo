@@ -1,0 +1,18 @@
+use("sample_weatherdata");
+
+db.store.insertOne({
+  storeId: 'ST001',
+  name: 'Best store',
+  asdress :'cra 123'
+});
+
+db.store_details.insertOne({
+  storeId: "ST001",
+  description: "text text text text...",
+  asdress: "cra 145624",
+  manager: {
+    email: 'admin@admin.com',
+    cellphone: '12113313132'
+  }
+});
+
