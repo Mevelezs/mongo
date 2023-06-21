@@ -1,0 +1,40 @@
+
+use("sample_weatherdata");
+
+db.users.find()
+
+db.orders.aggregate([
+  {
+    $match: {
+      // machea el id de la orden
+      _id: ObjectId("64909cca82cea375ec7d5380"),
+    },
+  },
+  {
+    $lookup: {
+      // trae la relación
+      from: "users",
+      localField: "user_id",
+      foreignField: "_id",
+      as: "user",
+    },
+  },
+]);
+
+
+db.users.aggregate([
+  {
+    $match: { // matchea el id de usuario
+      _id: ObjectId("648cbd761dcf9fa5bef422e4"),
+    },
+  },
+  {
+    $lookup: {
+      from: "orders",
+      localField: "_id",
+      foreignField: "user_id",
+      as: "order",
+    },
+  },
+]);
+

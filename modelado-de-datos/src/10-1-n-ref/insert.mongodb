@@ -1,0 +1,15 @@
+// Ésta relación uno a muchos embebida se usa cuando sabemons que los datos del array no van a ser muchos (cuando la relación uno a muchos se convierte en una relación uno a pocos)
+use("sample_weatherdata");
+
+db.orders.insertOne({
+  user_id: ObjectId("648cbd761dcf9fa5bef422e4"),
+  date: '2020-12-12',
+  items: [
+    {
+      name: 'Juguete',
+      price: 120,
+      quantity: 30
+    },
+  ],
+});
+

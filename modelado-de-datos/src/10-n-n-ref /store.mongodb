@@ -1,0 +1,17 @@
+use("sample_weatherdata");
+
+db.store.insertMany([
+  {
+    name: "Store 1",
+    products_ids: [ObjectId("648a0a2c6223a3327e0d97c0"), ObjectId("64924131cd7a56d06dadd45d")],
+  },
+  {
+    name: "Store 2",
+    products_ids: [
+      ObjectId("64924131cd7a56d06dadd45e"),
+      ObjectId("64924131cd7a56d06dadd45f"),
+      ObjectId("64924131cd7a56d06dadd45d"),
+      ObjectId("648a0a2c6223a3327e0d97c0")
+    ],
+  },
+]);

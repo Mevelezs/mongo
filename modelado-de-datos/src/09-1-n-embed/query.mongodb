@@ -1,0 +1,7 @@
+
+use("sample_weatherdata");
+
+db.users.find()
+db.orders.find()
+db.orders.find({'items.quantity': 30})
+

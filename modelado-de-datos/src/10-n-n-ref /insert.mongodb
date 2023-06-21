@@ -1,0 +1,21 @@
+
+use("sample_weatherdata");
+
+db.products.insertMany([
+  {
+    name: "Product 1",
+    price: 300,
+    size: ["S", "M"]
+  },
+  {
+    name: "Product 2",
+    price: 500,
+    size: "S"
+  },
+  {
+    name: "Product 3",
+    price: 200,
+    size: ["S", "M", "L"]
+  },
+]);
+
