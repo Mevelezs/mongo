@@ -10,3 +10,4 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=root123
     volumes:
       - ./mongo_data:/data/db
+      # no olvidar crear la carpeta mongo_data en la raíz

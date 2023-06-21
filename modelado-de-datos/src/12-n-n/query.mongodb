@@ -1,0 +1,17 @@
+
+use("sample_weatherdata");
+
+db.products.find();
+db.store.find();
+
+db.store.aggregate([
+  {
+    $lookup: {
+      from: 'products',
+      localField: 'products_ids',
+      foreignField: '_id',
+      as: 'products'
+    }
+  }
+])
+
